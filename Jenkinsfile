@@ -5,6 +5,8 @@ echo "Jenkins url is: ${env.JENKINS_URL}"
 echo "Node Name is: ${env.NODE_NAME}"
 echo "Job Name is: ${env.JOB_NAME}"
 
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), rateLimitBuilds([count: 1, durationName: 'second', userBoost: false]), pipelineTriggers([githubPush()])])
+
 //github to pull the code 
 stage('CheckOutCode'){
     git branch: 'main', credentialsId: 'gitgub_jenkins', url: 'https://github.com/DevOpsproject-asn/maven_webapp_project.git'
