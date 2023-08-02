@@ -24,9 +24,9 @@ stage('ExecuteSonarQubeReport'){
 stage('UploadArtifcatsIntoArtifactoryRepo'){
    sh "${mavenHome}/bin/mvn clean deploy"
 }
+//docker image create
 stage('docker build the image'){
-    sh ""
+    sh "docker build -t cloudoker123456/maven_webapp_project1 ."
 }
-
 
 }
