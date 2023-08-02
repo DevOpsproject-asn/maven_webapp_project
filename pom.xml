@@ -11,10 +11,7 @@
 
 	<description>Maven Web Project for Java Project</description>
 
-	<organization>
-		<name> DevOps Project </name>
-		<url>http://technologies.com/</url>
-	</organization>
+	
 
 	<properties>
 		<jdk.version>1.8</jdk.version>
