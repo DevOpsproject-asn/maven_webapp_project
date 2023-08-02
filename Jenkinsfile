@@ -29,9 +29,9 @@ stage('docker build the image'){
     sh "docker build -t cloudoker123456/maven_webapp_project1 ."
 }
 stage('dockerlogin&pushtoregistry'){
-    withCredentials([string(credentialsId: 'docker_cred', variable: 'dockerHub')]) {
+    withCredentials([string(credentialsId: 'dockerHUB_cred', variable: 'dockerHub')]) {
     sh "docker login -u cloudocker123456 -p ${dockerHub}"
     }
-    sh "docker push cloudoker123456/maven_webapp_project1"
+    sh "docker push cloudoker123456/maven_webapp_project1:latest"
 }
 }
