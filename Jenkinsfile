@@ -3,22 +3,25 @@ node{
 def mavenHome = tool name: "maven3.9.3"
 //github to pull the code 
 stage('CheckOutCode'){
-git branch: 'development', credentialsId: '166c70a2-1df5-4993-a566-0a795862da8c', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'
+    git branch: 'main', credentialsId: 'gitgub_jenkins', url: 'https://github.com/DevOpsproject-asn/maven_webapp_project.git'
 }
 
 //maven build the package
 stage('Build'){
-sh "${mavenHome}/bin/mvn clean package"
+    sh "${mavenHome}/bin/mvn clean package"
 }
 
 //to send the sonarqube for code quality check 
 stage('ExecuteSonarQubeReport'){
-sh "${mavenHome}/bin/mvn clean sonar:sonar"
+    sh "${mavenHome}/bin/mvn clean sonar:sonar"
 }
 
 //send to nexus artifact to store all the packages
 stage('UploadArtifcatsIntoArtifactoryRepo'){
-sh "${mavenHome}/bin/mvn clean deploy"
+   sh "${mavenHome}/bin/mvn clean deploy"
+}
+stage('docker build the image'){
+    sh ""
 }
 
 
