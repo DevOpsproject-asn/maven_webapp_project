@@ -1,6 +1,10 @@
 node{
 
 def mavenHome = tool name: "maven3.9.3"
+echo "Jenkins url is: ${env.JENKINS_URL}" 
+echo "Node Name is: ${env.NODE_NAME}"
+echo "Job Name is: ${env.JOB_NAME}"
+
 //github to pull the code 
 stage('CheckOutCode'){
     git branch: 'main', credentialsId: 'gitgub_jenkins', url: 'https://github.com/DevOpsproject-asn/maven_webapp_project.git'
