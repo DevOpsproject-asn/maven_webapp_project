@@ -9,4 +9,5 @@ node {
   stage ('checkcodequality'){
      sh "${mavenHome}/bin/mvn clean sonar:sonar"
   }
+}
 
