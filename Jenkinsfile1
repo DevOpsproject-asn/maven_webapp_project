@@ -13,6 +13,6 @@ node {
     sh "${mavenHome}/bin/mvn clean deploy"
   }
   stage ('dockerbuildtheimage'){
-    sh "dockeer build -t cloudocker123456/mavenproject12 ."
+    sh "docker build -t cloudocker123456/mavenproject12 ."
   }
 }
