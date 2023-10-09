@@ -15,4 +15,10 @@ node {
   stage ('dockerbuildtheimage'){
     sh "docker build -t cloudocker123456/mavenproject12 ."
   }
+  stage( 'dockerlogin & push to dockerhub'){
+    withCredentials([string(credentialsId: 'dockerhub', variable: 'DockerHub')]) {
+      sh "docker -u cloudocker123456 -p ${DockerHub}
+     }
+      sh "docker push cloudocker123456/mavenproject12"
+  }
 }
