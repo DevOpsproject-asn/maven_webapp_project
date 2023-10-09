@@ -1,0 +1,11 @@
+node {
+  def mavenHome = tool name: "Maven3.9.0"
+  stage ('git checkout'){
+    git credentialId: 'github-jenkins' , 
+  }
+  stage('build'){
+     sh "${mavenHome}/bin/mvn clean package"
+  }
+  stage ('checkcodequality'){
+     sh "${mavenHome}/bin/mvn clean sonar:sonar"
+  }
