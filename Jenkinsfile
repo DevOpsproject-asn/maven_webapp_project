@@ -20,7 +20,7 @@ stage('CheckOutCode'){
 //to send the sonarqube for code quality check 
 //stage('ExecuteSonarQubeReport'){
 //    sh "${mavenHome}/bin/mvn clean sonar:sonar"
-//}
+}
 
 //send to nexus artifact to store all the packages
 //stage('UploadArtifcatsIntoArtifactoryRepo'){
