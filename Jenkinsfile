@@ -13,27 +13,27 @@ stage('CheckOutCode'){
 }
 
 //maven build the package
-stage('Build'){
-    sh "${mavenHome}/bin/mvn clean package"
-}
+//stage('Build'){
+//    sh "${mavenHome}/bin/mvn clean package"
+//}
 
 //to send the sonarqube for code quality check 
-stage('ExecuteSonarQubeReport'){
-    sh "${mavenHome}/bin/mvn clean sonar:sonar"
-}
+//stage('ExecuteSonarQubeReport'){
+//    sh "${mavenHome}/bin/mvn clean sonar:sonar"
+//}
 
 //send to nexus artifact to store all the packages
-stage('UploadArtifcatsIntoArtifactoryRepo'){
-   sh "${mavenHome}/bin/mvn clean deploy"
-}
+//stage('UploadArtifcatsIntoArtifactoryRepo'){
+//   sh "${mavenHome}/bin/mvn clean deploy"
+//}
 //docker image create
-stage('docker build the image'){
-    sh "docker build -t cloudoker123456/maven_webapp_project1 ."
-}
-stage('dockerlogin&pushtoregistry'){
-    withCredentials([string(credentialsId: 'dockerHUB_cred', variable: 'dockerHub')]) {
-    sh "docker login -u cloudocker123456 -p ${dockerHub}"
-    }
-    sh "docker push cloudoker123456/maven_webapp_project1:latest"
-}
-}
+//stage('docker build the image'){
+//    sh "docker build -t cloudoker123456/maven_webapp_project1 ."
+//}
+//stage('dockerlogin&pushtoregistry'){
+//    withCredentials([string(credentialsId: 'dockerHUB_cred', variable: 'dockerHub')]) {
+//    sh "docker login -u cloudocker123456 -p ${dockerHub}"
+//    }
+//    sh "docker push cloudoker123456/maven_webapp_project1:latest"
+//}
+//}
