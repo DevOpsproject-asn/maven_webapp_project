@@ -13,9 +13,9 @@ stage('CheckOutCode'){
 }
 
 //maven build the package
-//stage('Build'){
-//    sh "${mavenHome}/bin/mvn clean package"
-//}
+stage('Build'){
+    sh "${mavenHome}/bin/mvn clean package"
+}
 
 //to send the sonarqube for code quality check 
 //stage('ExecuteSonarQubeReport'){
